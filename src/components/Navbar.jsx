@@ -108,22 +108,14 @@ export default function Navbar() {
           {/* Brand Logo */}
           <Link 
             to={`${prefix}/`}
-            className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-elikay-primary rounded py-1 flex-shrink-0"
+            className="flex items-center focus:outline-none focus:ring-2 focus:ring-elikay-primary rounded py-1 flex-shrink-0"
             aria-label="ELIKAY ROOFING LLC Home"
           >
             <img 
               src="/images/logo/elikay-logo.jpeg" 
               alt="ELIKAY ROOFING LLC" 
-              className="h-10 sm:h-12 w-auto object-contain transition-transform hover:scale-[1.02]"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform hover:scale-[1.02]"
             />
-            <div className="hidden 2xl:block">
-              <span className="block text-xs font-semibold tracking-wider uppercase text-elikay-deepBlue">
-                {businessInfo.offer[lang]}
-              </span>
-              <span className="block text-[11px] text-gray-500 font-medium">
-                {businessInfo.bilingualNotice[lang]}
-              </span>
-            </div>
           </Link>
 
           {/* Desktop Navigation Links */}
