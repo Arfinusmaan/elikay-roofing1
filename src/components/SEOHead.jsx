@@ -250,12 +250,12 @@ export default function SEOHead({
       schemaGraph.push({
         '@context': 'https://schema.org',
         '@type': 'Service',
-        'serviceType': serviceData.title[lang] || serviceData.title.en,
+        'serviceType': serviceData.title?.[lang] || serviceData.title?.en || '',
         'provider': {
           '@id': `${BASE_URL}/#organization`
         },
         'areaServed': serviceAreasArray,
-        'description': serviceData.shortDesc[lang] || serviceData.shortDesc.en,
+        'description': serviceData.shortDesc?.[lang] || serviceData.shortDesc?.en || '',
         'offers': {
           '@type': 'Offer',
           'price': '0',
@@ -267,18 +267,30 @@ export default function SEOHead({
 
     // Specific FAQ Schema
     if (faqItems && faqItems.length > 0) {
-      schemaGraph.push({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        'mainEntity': faqItems.map(item => ({
-          '@type': 'Question',
-          'name': item.q[lang] || item.q.en || item.question,
-          'acceptedAnswer': {
-            '@type': 'Answer',
-            'text': item.a[lang] || item.a.en || item.answer
-          }
-        }))
-      });
+      const validFaqEntities = faqItems
+        .map(item => {
+          if (!item) return null;
+          const qText = item.question?.[lang] || item.question?.en || item.q?.[lang] || item.q?.en || (typeof item.question === 'string' ? item.question : null);
+          const aText = item.answer?.[lang] || item.answer?.en || item.a?.[lang] || item.a?.en || (typeof item.answer === 'string' ? item.answer : null);
+          if (!qText || !aText) return null;
+          return {
+            '@type': 'Question',
+            'name': qText,
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': aText
+            }
+          };
+        })
+        .filter(Boolean);
+
+      if (validFaqEntities.length > 0) {
+        schemaGraph.push({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          'mainEntity': validFaqEntities
+        });
+      }
     }
 
     scriptTag.textContent = JSON.stringify(schemaGraph.length === 1 ? schemaGraph[0] : { '@context': 'https://schema.org', '@graph': schemaGraph });
