@@ -140,14 +140,21 @@ export default function Navbar() {
             </Link>
 
             {/* Services Dropdown */}
-            <div className="relative" ref={servicesRef}>
+            <div 
+              className="relative" 
+              ref={servicesRef}
+              onMouseEnter={() => {
+                setServicesOpen(true);
+                setAreasOpen(false);
+              }}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
               <button
                 type="button"
                 onClick={() => {
-                  setServicesOpen(!servicesOpen);
+                  setServicesOpen(prev => !prev);
                   setAreasOpen(false);
                 }}
-                onMouseEnter={() => setServicesOpen(true)}
                 className={`px-3 py-2 text-sm font-semibold rounded flex items-center gap-1.5 transition-colors ${
                   location.pathname.includes('/services')
                     ? 'text-elikay-primary bg-elikay-primary/5'
@@ -164,46 +171,56 @@ export default function Navbar() {
 
               {servicesOpen && (
                 <div 
-                  onMouseLeave={() => setServicesOpen(false)}
-                  className="absolute left-0 top-full mt-1 w-[460px] bg-white rounded-lg shadow-elevated border border-elikay-borderGray/30 p-3 grid grid-cols-2 gap-1 animate-in fade-in slide-in-from-top-2 duration-150"
+                  className="absolute left-0 top-full pt-2 w-[460px] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
                   role="menu"
                 >
-                  <div className="col-span-2 pb-2 mb-1 border-b border-gray-100 flex items-center justify-between px-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-elikay-deepBlue">
-                      {isSpanish ? '11 Servicios de Techos' : 'All 11 Roofing Services'}
-                    </span>
-                    <Link 
-                      to={`${prefix}/services`}
-                      className="text-xs font-semibold text-elikay-primary hover:underline"
-                    >
-                      {isSpanish ? 'Ver resumen →' : 'View overview →'}
-                    </Link>
-                  </div>
+                  <div className="bg-white rounded-lg shadow-elevated border border-elikay-borderGray/30 p-3 grid grid-cols-2 gap-1">
+                    <div className="col-span-2 pb-2 mb-1 border-b border-gray-100 flex items-center justify-between px-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-elikay-deepBlue">
+                        {isSpanish ? '11 Servicios de Techos' : 'All 11 Roofing Services'}
+                      </span>
+                      <Link 
+                        to={`${prefix}/services`}
+                        onClick={() => setServicesOpen(false)}
+                        className="text-xs font-semibold text-elikay-primary hover:underline"
+                      >
+                        {isSpanish ? 'Ver resumen →' : 'View overview →'}
+                      </Link>
+                    </div>
 
-                  {servicesData.map((service) => (
-                    <Link
-                      key={service.slug}
-                      to={`${prefix}/services/${service.slug}`}
-                      className="px-2.5 py-2 text-xs font-medium rounded hover:bg-elikay-primary/5 hover:text-elikay-primary transition-colors flex items-center gap-2 group"
-                      role="menuitem"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-elikay-primary transition-colors" />
-                      <span className="truncate">{service.title[lang]}</span>
-                    </Link>
-                  ))}
+                    {servicesData.map((service) => (
+                      <Link
+                        key={service.slug}
+                        to={`${prefix}/services/${service.slug}`}
+                        onClick={() => setServicesOpen(false)}
+                        className="px-2.5 py-2 text-xs font-medium rounded hover:bg-elikay-primary/5 hover:text-elikay-primary transition-colors flex items-center gap-2 group"
+                        role="menuitem"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-elikay-primary transition-colors" />
+                        <span className="truncate">{service.title[lang]}</span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
 
             {/* Service Areas Dropdown */}
-            <div className="relative" ref={areasRef}>
+            <div 
+              className="relative" 
+              ref={areasRef}
+              onMouseEnter={() => {
+                setAreasOpen(true);
+                setServicesOpen(false);
+              }}
+              onMouseLeave={() => setAreasOpen(false)}
+            >
               <button
                 type="button"
                 onClick={() => {
-                  setAreasOpen(!areasOpen);
+                  setAreasOpen(prev => !prev);
                   setServicesOpen(false);
                 }}
-                onMouseEnter={() => setAreasOpen(true)}
                 className={`px-3 py-2 text-sm font-semibold rounded flex items-center gap-1.5 transition-colors ${
                   location.pathname.includes('/service-areas')
                     ? 'text-elikay-primary bg-elikay-primary/5'
@@ -220,33 +237,36 @@ export default function Navbar() {
 
               {areasOpen && (
                 <div 
-                  onMouseLeave={() => setAreasOpen(false)}
-                  className="absolute left-0 top-full mt-1 w-[380px] bg-white rounded-lg shadow-elevated border border-elikay-borderGray/30 p-3 grid grid-cols-2 gap-1 animate-in fade-in slide-in-from-top-2 duration-150"
+                  className="absolute left-0 top-full pt-2 w-[380px] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
                   role="menu"
                 >
-                  <div className="col-span-2 pb-2 mb-1 border-b border-gray-100 flex items-center justify-between px-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-elikay-deepBlue">
-                      {isSpanish ? 'Ciudades y Zonas de Texas' : 'Texas Service Areas'}
-                    </span>
-                    <Link 
-                      to={`${prefix}/service-areas`}
-                      className="text-xs font-semibold text-elikay-primary hover:underline"
-                    >
-                      {isSpanish ? 'Ver mapa →' : 'Overview →'}
-                    </Link>
-                  </div>
+                  <div className="bg-white rounded-lg shadow-elevated border border-elikay-borderGray/30 p-3 grid grid-cols-2 gap-1">
+                    <div className="col-span-2 pb-2 mb-1 border-b border-gray-100 flex items-center justify-between px-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-elikay-deepBlue">
+                        {isSpanish ? 'Ciudades y Zonas de Texas' : 'Texas Service Areas'}
+                      </span>
+                      <Link 
+                        to={`${prefix}/service-areas`}
+                        onClick={() => setAreasOpen(false)}
+                        className="text-xs font-semibold text-elikay-primary hover:underline"
+                      >
+                        {isSpanish ? 'Ver mapa →' : 'Overview →'}
+                      </Link>
+                    </div>
 
-                  {locationsData.map((loc) => (
-                    <Link
-                      key={loc.slug}
-                      to={`${prefix}/service-areas/${loc.slug}`}
-                      className="px-2.5 py-1.5 text-xs font-medium rounded hover:bg-elikay-primary/5 hover:text-elikay-primary transition-colors flex items-center gap-2 group"
-                      role="menuitem"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-elikay-primary transition-colors" />
-                      <span>{loc.name}, TX</span>
-                    </Link>
-                  ))}
+                    {locationsData.map((loc) => (
+                      <Link
+                        key={loc.slug}
+                        to={`${prefix}/service-areas/${loc.slug}`}
+                        onClick={() => setAreasOpen(false)}
+                        className="px-2.5 py-1.5 text-xs font-medium rounded hover:bg-elikay-primary/5 hover:text-elikay-primary transition-colors flex items-center gap-2 group"
+                        role="menuitem"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-elikay-primary transition-colors" />
+                        <span>{loc.name}, TX</span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
