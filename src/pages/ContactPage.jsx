@@ -55,7 +55,7 @@ export default function ContactPage() {
         ]}
         bgImage="/images/heroes/hero-contact.jpg"
         ctaText={isSpanish ? 'Ir al Formulario de Contacto' : 'Jump to Estimate Form'}
-        ctaLink="/contact#form"
+        ctaLink="#estimate-form"
       />
 
       <section className="py-16 sm:py-20 bg-white border-b border-gray-200">
@@ -166,7 +166,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right Contact Form */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7" id="estimate-form">
               <div className="bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-xl space-y-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-elikay-primary block mb-1">

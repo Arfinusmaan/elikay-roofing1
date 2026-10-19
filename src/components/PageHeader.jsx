@@ -80,15 +80,36 @@ export default function PageHeader({
 
           {/* Single purposeful CTA with subtle direct call line */}
           <div className="pt-2 flex flex-wrap items-center gap-4">
-            <Link
-              to={ctaLink ? `${prefix}${ctaLink}` : `${prefix}/contact`}
-              className="px-7 py-3.5 rounded bg-elikay-primary hover:bg-elikay-primaryHover text-white text-xs sm:text-sm font-bold shadow-elevated transition-all flex items-center gap-2"
-            >
-              <span>{ctaText || (isSpanish ? 'Solicitar Presupuesto Gratuito' : 'Request Free Estimate')}</span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
+            {ctaLink && ctaLink.includes('#') ? (
+              <button
+                type="button"
+                onClick={() => {
+                  const hash = ctaLink.substring(ctaLink.indexOf('#') + 1);
+                  const targetEl = document.getElementById(hash);
+                  if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } else {
+                    window.location.hash = hash;
+                  }
+                }}
+                className="px-7 py-3.5 rounded bg-elikay-primary hover:bg-elikay-primaryHover text-white text-xs sm:text-sm font-bold shadow-elevated transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <span>{ctaText || (isSpanish ? 'Solicitar Presupuesto Gratuito' : 'Request Free Estimate')}</span>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            ) : (
+              <Link
+                to={ctaLink ? `${prefix}${ctaLink}` : `${prefix}/contact`}
+                className="px-7 py-3.5 rounded bg-elikay-primary hover:bg-elikay-primaryHover text-white text-xs sm:text-sm font-bold shadow-elevated transition-all flex items-center gap-2"
+              >
+                <span>{ctaText || (isSpanish ? 'Solicitar Presupuesto Gratuito' : 'Request Free Estimate')}</span>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            )}
             <a
               href={businessInfo.phoneTel}
               className="text-xs sm:text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-2 underline-offset-4 hover:underline"
