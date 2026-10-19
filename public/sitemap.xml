@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Core Pages -->
+  <url>
+    <loc>https://elikayroofing.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elikayroofing.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://elikayroofing.com/es" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://elikayroofing.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elikayroofing.com/services" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://elikayroofing.com/es/services" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://elikayroofing.com/service-areas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elikayroofing.com/service-areas" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://elikayroofing.com/es/service-areas" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://elikayroofing.com/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elikayroofing.com/portfolio" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://elikayroofing.com/es/portfolio" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://elikayroofing.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elikayroofing.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://elikayroofing.com/es/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://elikayroofing.com/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elikayroofing.com/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://elikayroofing.com/es/faq" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://elikayroofing.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elikayroofing.com/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://elikayroofing.com/es/contact" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 11 Services -->
+  <url><loc>https://elikayroofing.com/services/roof-repairs</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/roof-replacements</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/shingle-roofing</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/roof-leak-repairs</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/storm-damage-repairs</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/attic-venting-installation</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/gutter-cleaning</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/skylight-repair</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/fascia-repair</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/soffit-repair</loc><priority>0.85</priority></url>
+  <url><loc>https://elikayroofing.com/services/siding-repair</loc><priority>0.85</priority></url>
+
+  <!-- Service Areas -->
+  <url><loc>https://elikayroofing.com/service-areas/houston</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/katy</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/cypress</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/waller</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/hempstead</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/spring</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/the-woodlands</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/pearland</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/galveston</loc><priority>0.8</priority></url>
+  <url><loc>https://elikayroofing.com/service-areas/surrounding-areas</loc><priority>0.7</priority></url>
+</urlset>
