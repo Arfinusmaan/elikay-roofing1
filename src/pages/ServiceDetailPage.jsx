@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { servicesData } from '../data/servicesData';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import PageHeader from '../components/PageHeader';
 import ContactForm from '../components/ContactForm';
 import FAQAccordion from '../components/FAQAccordion';
@@ -49,8 +50,24 @@ export default function ServiceDetailPage() {
     }
   ];
 
+  const serviceKeywords = `${service.title.en} Houston TX, ${service.title.en} Katy, residential ${service.title.en} Cypress, roof repair contractor Texas, ELIKAY ROOFING ${service.title.en}, ${service.title.es} Houston`;
+
   return (
     <div className="bg-slate-50">
+      <SEOHead
+        title={isSpanish ? `${service.title.es} en Houston y Texas | ELIKAY ROOFING` : `${service.title.en} in Houston, TX | ELIKAY ROOFING LLC`}
+        description={service.shortDesc[lang]}
+        keywords={serviceKeywords}
+        canonicalPath={`${prefix}/services/${service.slug}`}
+        image={service.image}
+        breadcrumbs={[
+          { label: isSpanish ? 'Servicios' : 'Services', path: `${prefix}/services` },
+          { label: service.title[lang], path: `${prefix}/services/${service.slug}` }
+        ]}
+        serviceData={service}
+        faqItems={service.faqs}
+      />
+
       {/* 1. Header with Breadcrumbs & Service Background Image */}
       <PageHeader
         badge={isSpanish ? 'Servicio Residencial Especializado' : 'Specialized Residential Service'}
@@ -95,11 +112,11 @@ export default function ServiceDetailPage() {
               {/* Fast Feature Bullets */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
                 <div className="flex items-center gap-2 p-2.5 rounded-lg bg-pink-50/60 border border-pink-100">
-                  <span className="text-elikay-primary font-bold">✓</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-elikay-primary" />
                   <span>{businessInfo.offer[lang]}</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-emerald-50/60 border border-emerald-100">
-                  <span className="text-emerald-600 font-bold">✓</span>
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-pink-50/60 border border-pink-100">
+                  <span className="w-1.5 h-1.5 rounded-full bg-elikay-primary" />
                   <span>{businessInfo.bilingualNotice[lang]}</span>
                 </div>
               </div>
@@ -116,7 +133,7 @@ export default function ServiceDetailPage() {
                   href={businessInfo.phoneTel}
                   className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-elikay-primary transition-colors inline-flex items-center gap-2 py-2"
                 >
-                  <svg className="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 text-elikay-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   <span>{isSpanish ? 'O llame directo: ' : 'Or call: '}{businessInfo.phone}</span>

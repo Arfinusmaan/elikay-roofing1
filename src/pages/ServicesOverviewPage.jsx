@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { servicesData } from '../data/servicesData';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import PageHeader from '../components/PageHeader';
 import CTASection from '../components/CTASection';
 
@@ -63,6 +64,18 @@ export default function ServicesOverviewPage() {
 
   return (
     <div className="bg-slate-50">
+      <SEOHead
+        title={isSpanish ? 'Servicios de Techos Residenciales en Houston | 11 Especialidades' : 'Residential Roofing Services in Houston, TX | 11 Core Specialties'}
+        description={isSpanish
+          ? 'Descubra los 11 servicios de techos y exteriores de ELIKAY ROOFING LLC en Houston, TX: reparación de goteras, reemplazo de techos, tejas, ventilación y fascia. Presupuestos gratuitos.'
+          : 'Explore 11 specialized residential roofing services from ELIKAY ROOFING LLC across Houston, Katy, and Cypress: roof replacements, leak repairs, shingles, attic venting, and fascia repair.'}
+        keywords="roofing services Houston TX, residential roof replacement Houston, roof leak detection, architectural shingles installer, attic vents Houston, fascia repair Houston, storm damage roofer Texas"
+        canonicalPath={`${prefix}/services`}
+        image="/images/heroes/hero-services.jpg"
+        breadcrumbs={[
+          { label: isSpanish ? 'Servicios' : 'Services', path: `${prefix}/services` }
+        ]}
+      />
       <PageHeader
         badge={isSpanish ? 'Alcance Completo de Servicios' : 'Comprehensive Trade Scope'}
         title={isSpanish ? 'Servicios de Techos y Exteriores Residenciales' : 'Residential Roofing & Exterior Services'}

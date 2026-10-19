@@ -6,6 +6,7 @@ import { locationsData } from '../data/locationsData';
 import { portfolioItems } from '../data/portfolioData';
 import { faqData } from '../data/faqData';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import ContactForm from '../components/ContactForm';
 import FAQAccordion from '../components/FAQAccordion';
 import CTASection from '../components/CTASection';
@@ -19,6 +20,16 @@ export default function HomePage() {
 
   return (
     <div className="space-y-0">
+      <SEOHead
+        title={isSpanish ? 'Techos Residenciales en Houston, TX | Reparación y Reemplazo' : 'Houston, TX Residential Roofing Contractor | Repairs & Replacements'}
+        description={isSpanish
+          ? 'ELIKAY ROOFING LLC: Contratista de techos residenciales en Houston, Katy, Cypress y Texas. 13 años de experiencia en reparación de goteras, tejas y reemplazo de techos. Presupuestos gratuitos.'
+          : 'ELIKAY ROOFING LLC provides trusted residential roofing, whole roof replacements, leak repairs, and storm damage restoration across Houston, Katy, and Cypress, TX. 13 years hands-on experience. Free estimates.'}
+        keywords="roofing contractor Houston TX, residential roofing Houston, roof replacement Katy TX, roof leak repair Cypress TX, Texas shingle roofer, storm damage roof inspection Houston, bilingual roofer Houston, techos residenciales Houston, contratista de techos Texas"
+        canonicalPath={prefix || '/'}
+        image="/images/heroes/hero-home.jpg"
+        faqItems={faqData.slice(0, 5)}
+      />
       
       {/* 7.1 HERO SECTION */}
       <section className="relative bg-slate-950 text-white overflow-hidden min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center border-b border-slate-800">
@@ -38,7 +49,7 @@ export default function HomePage() {
           <div className="max-w-3xl space-y-6">
             {/* Trust Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 border border-white/20 text-xs font-semibold text-white">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-elikay-primary" />
               <span>{businessInfo.offer[lang]} · {businessInfo.bilingualNotice[lang]}</span>
             </div>
 
@@ -68,8 +79,8 @@ export default function HomePage() {
                 className="text-sm text-gray-200 hover:text-white transition-colors flex items-center gap-2 font-medium"
                 title={`Call ${businessInfo.phone}`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>{isSpanish ? 'Consulta directa:' : 'Direct field call:'} <strong className="text-white text-base underline decoration-emerald-400 underline-offset-4">{businessInfo.phone}</strong></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-elikay-primary" />
+                <span>{isSpanish ? 'Consulta directa:' : 'Direct field call:'} <strong className="text-white text-base underline decoration-elikay-primary underline-offset-4">{businessInfo.phone}</strong></span>
               </a>
             </div>
 

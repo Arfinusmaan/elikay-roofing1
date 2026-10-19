@@ -94,7 +94,7 @@ export default function PageHeader({
               className="text-xs sm:text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-2 underline-offset-4 hover:underline"
               title={`Call ${businessInfo.phone}`}
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span className="w-2 h-2 rounded-full bg-elikay-primary" />
               <span>{isSpanish ? 'O llame directamente al' : 'Or direct call:'} <strong className="text-white">{businessInfo.phone}</strong></span>
             </a>
           </div>

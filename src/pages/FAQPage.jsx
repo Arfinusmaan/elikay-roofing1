@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { faqData } from '../data/faqData';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import PageHeader from '../components/PageHeader';
 import FAQAccordion from '../components/FAQAccordion';
 import CTASection from '../components/CTASection';
 
 export default function FAQPage() {
   const { lang, isSpanish, t } = useLanguage();
+  const prefix = isSpanish ? '/es' : '';
   const [filter, setFilter] = useState('all');
 
   const categories = [
@@ -44,6 +46,19 @@ export default function FAQPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen">
+      <SEOHead
+        title={isSpanish ? 'Preguntas Frecuentes sobre Techos en Texas | Respuestas Técnicas' : 'Texas Residential Roofing FAQ | Expert Technical Answers'}
+        description={isSpanish
+          ? 'Preguntas frecuentes sobre reemplazo de techos, presupuestos gratuitos, tejas arquitectónicas, reparación de goteras y seguros en Texas por ELIKAY ROOFING LLC.'
+          : 'Frequently asked questions regarding roof replacements, free estimates, architectural shingles, leak repairs, storm claims, and attic ventilation in Texas.'}
+        keywords="roofing FAQ Texas, how long does roof last Houston, cost of roof replacement Houston, free roofing estimate Texas"
+        canonicalPath={`${prefix}/faq`}
+        image="/images/heroes/hero-faq.jpg"
+        breadcrumbs={[
+          { label: isSpanish ? 'Preguntas Frecuentes' : 'FAQ', path: `${prefix}/faq` }
+        ]}
+        faqItems={faqData}
+      />
       <PageHeader
         badge={isSpanish ? 'Centro de Preguntas & Asesoría' : 'Homeowner Knowledge Base'}
         title={isSpanish ? 'Preguntas Frecuentes sobre Techos' : 'Frequently Asked Roofing Questions'}

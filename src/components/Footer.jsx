@@ -32,7 +32,7 @@ export default function Footer() {
 
             <div className="pt-2 space-y-2">
               <div className="flex items-center gap-2.5 text-sm text-gray-200">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="w-2 h-2 rounded-full bg-elikay-primary" />
                 <span className="font-semibold text-white">{businessInfo.offer[lang]}</span>
                 <span className="text-xs text-gray-400">· {businessInfo.bilingualNotice[lang]}</span>
               </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import PageHeader from '../components/PageHeader';
 import CTASection from '../components/CTASection';
 
@@ -46,6 +47,18 @@ export default function AboutPage() {
 
   return (
     <div className="bg-slate-50">
+      <SEOHead
+        title={isSpanish ? 'Acerca de ELIKAY ROOFING LLC | 13 Años de Experiencia en Texas' : 'About ELIKAY ROOFING LLC | 13 Years Residential Roofing Experience'}
+        description={isSpanish
+          ? 'Conozca la historia, compromiso y estándares técnicos de ELIKAY ROOFING LLC. 13 años de experiencia en techos residenciales en Houston, Katy, Cypress y Texas.'
+          : 'Learn about ELIKAY ROOFING LLC: 13 years of hands-on roofing experience delivering honest, durable residential roof replacements across Greater Houston and Texas.'}
+        keywords="about ELIKAY ROOFING, Houston roofing company history, residential roofer Texas experience, bilingual roofing team Houston"
+        canonicalPath={`${prefix}/about`}
+        image="/images/heroes/hero-about.jpg"
+        breadcrumbs={[
+          { label: isSpanish ? 'Nosotros' : 'About', path: `${prefix}/about` }
+        ]}
+      />
       <PageHeader
         badge={isSpanish ? 'Nuestra Trayectoria & Compromiso' : '13 Years Trade Experience'}
         title={isSpanish ? 'Acerca de ELIKAY ROOFING LLC' : 'About ELIKAY ROOFING LLC'}

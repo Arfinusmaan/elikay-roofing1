@@ -1,11 +1,13 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import PageHeader from '../components/PageHeader';
 import ContactForm from '../components/ContactForm';
 
 export default function ContactPage() {
   const { lang, isSpanish, t } = useLanguage();
+  const prefix = isSpanish ? '/es' : '';
 
   const estimateSteps = [
     {
@@ -30,6 +32,18 @@ export default function ContactPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen">
+      <SEOHead
+        title={isSpanish ? 'Contacto y Presupuesto Gratuito | ELIKAY ROOFING LLC Houston' : 'Contact Us & Request Free Roofing Estimate | Houston, TX'}
+        description={isSpanish
+          ? 'Contáctenos al 970-778-7951 o complete el formulario para agendar su inspección y presupuesto de techo gratuito en Houston, Katy, Cypress y Texas.'
+          : 'Contact ELIKAY ROOFING LLC at 970-778-7951 or request a free on-site roof inspection and estimate in Houston, Katy, and Cypress, TX. Bilingual team.'}
+        keywords="free roofing estimate Houston, schedule roof inspection Katy TX, roofing contractor phone number Texas, contact ELIKAY ROOFING"
+        canonicalPath={`${prefix}/contact`}
+        image="/images/heroes/hero-contact.jpg"
+        breadcrumbs={[
+          { label: isSpanish ? 'Contacto' : 'Contact', path: `${prefix}/contact` }
+        ]}
+      />
       <PageHeader
         badge={businessInfo.offer[lang]}
         title={isSpanish ? 'Contáctenos y Solicite su Presupuesto' : 'Contact & Free Estimate Request'}

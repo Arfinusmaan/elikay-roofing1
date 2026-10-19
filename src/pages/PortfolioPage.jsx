@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioItems, portfolioCategories } from '../data/portfolioData';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import PageHeader from '../components/PageHeader';
 import CTASection from '../components/CTASection';
 
 export default function PortfolioPage() {
   const { lang, isSpanish, t } = useLanguage();
+  const prefix = isSpanish ? '/es' : '';
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -16,6 +18,18 @@ export default function PortfolioPage() {
 
   return (
     <div className="bg-slate-50 min-h-screen">
+      <SEOHead
+        title={isSpanish ? 'Galería de Trabajos de Techos en Texas | Fotos Reales de Obras' : 'Roofing Project Gallery & Workmanship | Real Texas Roof Installations'}
+        description={isSpanish
+          ? 'Explore fotos reales de trabajos de techos en Houston, Katy y Cypress: desmontaje, reemplazo de tejas, hojalatería y ventilación de ático por ELIKAY ROOFING LLC.'
+          : 'Browse verified roofing jobsite photography across Houston, Katy, and Cypress: complete roof tear-offs, architectural shingle installations, and chimney flashings.'}
+        keywords="roofing photos Houston, roof replacement gallery Texas, shingle roofing portfolio, roofer work examples Houston, ELIKAY ROOFING projects"
+        canonicalPath={`${prefix}/portfolio`}
+        image="/images/heroes/hero-portfolio.jpg"
+        breadcrumbs={[
+          { label: isSpanish ? 'Galería' : 'Portfolio', path: `${prefix}/portfolio` }
+        ]}
+      />
       <PageHeader
         badge={isSpanish ? 'Galería de Oficio Real' : 'Field Craftsmanship Gallery'}
         title={isSpanish ? 'Galería de Proyectos y Calidad de Trabajo' : 'Project Gallery & Roofing Craftsmanship'}
@@ -39,7 +53,7 @@ export default function PortfolioPage() {
               <span className="text-gray-300 text-xs">{isSpanish ? 'Fotos Reales de Oficio' : 'Real Field Photography'}</span>
             </div>
             <div className="p-3 md:border-r border-slate-800">
-              <span className="text-emerald-400 font-extrabold text-2xl sm:text-3xl block">13</span>
+              <span className="text-elikay-primary font-extrabold text-2xl sm:text-3xl block">13</span>
               <span className="text-gray-300 text-xs">{isSpanish ? 'Años en la Industria' : 'Years Experience'}</span>
             </div>
             <div className="p-3 border-r border-slate-800">

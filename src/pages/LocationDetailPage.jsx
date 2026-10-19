@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { locationsData } from '../data/locationsData';
 import { servicesData } from '../data/servicesData';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import PageHeader from '../components/PageHeader';
 import ContactForm from '../components/ContactForm';
 import FAQAccordion from '../components/FAQAccordion';
@@ -41,8 +42,24 @@ export default function LocationDetailPage() {
     }
   ];
 
+  const cityKeywords = `roofing contractor ${location.name} TX, roof repair ${location.name} Texas, roof replacement ${location.name}, ${location.name} residential roofer, emergency roof repair ${location.name}, hail damage inspection ${location.name}, ${location.county} roofing services, techos en ${location.name}`;
+
   return (
     <div className="bg-slate-50">
+      <SEOHead
+        title={isSpanish ? `Techos Residenciales en ${location.name}, TX | Reparación y Reemplazo` : `Roofing Contractor in ${location.name}, TX | Residential Repairs & Replacement`}
+        description={location.shortDesc[lang]}
+        keywords={cityKeywords}
+        canonicalPath={`${prefix}/service-areas/${location.slug}`}
+        image={location.image}
+        breadcrumbs={[
+          { label: isSpanish ? 'Zonas de Servicio' : 'Service Areas', path: `${prefix}/service-areas` },
+          { label: `${location.name}, TX`, path: `${prefix}/service-areas/${location.slug}` }
+        ]}
+        locationData={location}
+        faqItems={location.faqs}
+      />
+
       {/* 1. Page Header with City Background Image */}
       <PageHeader
         badge={`${location.name}, Texas · ${location.county}`}
@@ -107,7 +124,7 @@ export default function LocationDetailPage() {
                   href={businessInfo.phoneTel}
                   className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-elikay-primary transition-colors inline-flex items-center gap-2 py-2"
                 >
-                  <svg className="w-4 h-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 text-elikay-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   <span>{isSpanish ? 'O llame directo: ' : 'Or call: '}{businessInfo.phone}</span>

@@ -344,10 +344,10 @@ export default function Navbar() {
             {/* Direct Phone Call Icon for mobile screens */}
             <a
               href={businessInfo.phoneTel}
-              className="sm:hidden w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 transition-colors flex items-center justify-center"
+              className="sm:hidden w-10 h-10 rounded-lg bg-pink-50 text-elikay-primary hover:bg-pink-100 border border-pink-200 transition-colors flex items-center justify-center"
               aria-label={`Call ${businessInfo.phone}`}
             >
-              <svg className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 text-elikay-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </a>
@@ -452,14 +452,14 @@ export default function Navbar() {
             {/* Direct phone call banner */}
             <div className="p-3.5 bg-slate-900 rounded-xl text-white flex items-center justify-between shadow-md">
               <div>
-                <span className="block text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">
+                <span className="block text-[11px] font-semibold text-elikay-primaryMuted uppercase tracking-wider">
                   {isSpanish ? 'Llámenos directamente' : 'Direct Field Call'}
                 </span>
                 <span className="text-sm font-bold text-white">{businessInfo.phone}</span>
               </div>
               <a 
                 href={businessInfo.phoneTel}
-                className="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold rounded-lg transition-colors shadow-sm flex items-center gap-1.5"
+                className="px-4 py-2 bg-elikay-primary hover:bg-elikay-primaryHover text-white text-xs font-bold rounded-lg transition-colors shadow-sm flex items-center gap-1.5"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

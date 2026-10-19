@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { locationsData } from '../data/locationsData';
 import { businessInfo } from '../data/businessInfo';
+import SEOHead from '../components/SEOHead';
 import PageHeader from '../components/PageHeader';
 import CTASection from '../components/CTASection';
 
@@ -35,6 +36,18 @@ export default function LocationsOverviewPage() {
 
   return (
     <div className="bg-slate-50">
+      <SEOHead
+        title={isSpanish ? 'Zonas de Servicio en Texas | Techos en Houston, Katy, Cypress y Más' : 'Service Areas in Texas | Roofing in Houston, Katy, Cypress & Surrounding Areas'}
+        description={isSpanish
+          ? 'Servicios de techos residenciales de ELIKAY ROOFING LLC en Houston, Katy, Cypress, Waller, Hempstead, Spring, The Woodlands, Pearland y Galveston, TX. Presupuestos gratuitos.'
+          : 'ELIKAY ROOFING LLC provides residential roofing, roof repairs, and free estimates across Houston, Katy, Cypress, Waller, Hempstead, Spring, The Woodlands, Pearland, and Galveston, TX.'}
+        keywords="roofing service areas Texas, roofer Houston TX, roofing contractor Katy, roof replacement Cypress, roofer Spring TX, roofer The Woodlands, roofer Pearland, Galveston roofing contractor"
+        canonicalPath={`${prefix}/service-areas`}
+        image="/images/locations/houston.jpg"
+        breadcrumbs={[
+          { label: isSpanish ? 'Zonas de Servicio' : 'Service Areas', path: `${prefix}/service-areas` }
+        ]}
+      />
       <PageHeader
         badge={isSpanish ? 'Cobertura Regional en Texas' : 'Texas Regional Coverage'}
         title={isSpanish ? 'Áreas de Servicio y Presupuestos en Texas' : 'Texas Service Areas & Roof Coverage'}
